@@ -1,11 +1,21 @@
 import React from "react";
 
 function List({ people }) {
-  const { id, name, image, birthday } = people;
   return (
-    <div>
-      <h2>List componet</h2>
-    </div>
+    <>
+      {people.map((person) => {
+        const { id, name, image, birthday } = person;
+        return (
+          <article key={id}>
+            <img src={image} />
+            <div>
+              <h3>{name}</h3>
+              <p>{birthday}</p>
+            </div>
+          </article>
+        );
+      })}
+    </>
   );
 }
 
